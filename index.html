@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Climate Change Data Dashboard</title>
+  <!-- D3.js and related libraries -->
+  <script src="https://d3js.org/d3.v7.min.js"></script>
+  <script src="https://d3js.org/topojson.v3.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/d3-cloud@1.2.5/build/d3.layout.cloud.min.js"></script>
+  <!-- Custom CSS -->
+  <link rel="stylesheet" href="styles.css">
+  <!-- Font -->
+  <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+  <header>
+    <h1>Global Climate Change Dashboard</h1>
+    <nav>
+      <ul>
+        <li><a href="#temperature">Temperature Trends</a></li>
+        <li><a href="#emissions">Global Emissions</a></li>
+        <li><a href="#policy">Policy Analysis</a></li>
+        <li><a href="#about">About</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <section id="intro">
+      <h2>Understanding Our Changing Climate</h2>
+      <p>This dashboard visualizes key climate data to help understand the scope and impact of climate change. Explore temperature trends, emissions by country, and analysis of climate policy language.</p>
+      <p>Use the navigation menu above to explore different visualizations and insights about our changing climate. Each section offers interactive elements to help you understand the data better.</p>
+    </section>
+
+    <section id="temperature" class="visualization-section">
+      <h2>Global Temperature Anomalies (1990-2020)</h2>
+      <p>Track how global temperatures have changed over the past three decades. The chart below shows temperature anomalies relative to the 1951-1980 average.</p>
+      <!-- Controls div removed here -->
+      <div id="temperature-chart" class="chart-container"></div>
+      <div class="insights">
+        <h3>Key Insights:</h3>
+        <ul>
+          <li>Global temperatures have risen by approximately 1.2°C since 1990</li>
+          <li>The rate of warming has accelerated since 2000</li>
+          <li>The hottest years on record have all occurred since 2015</li>
+        </ul>
+      </div>
+    </section>
+
+    <section id="emissions" class="visualization-section">
+      <h2>CO2 Emissions by Country</h2>
+      <p>Explore which countries are contributing most to carbon emissions. Toggle between total emissions and per capita emissions to see different perspectives.</p>
+      <div class="controls">
+        <select id="emissions-year">
+          <option value="2020">2020</option>
+          <option value="2015">2015</option>
+          <option value="2010">2010</option>
+          <option value="2005">2005</option>
+          <option value="2000">2000</option>
+        </select>
+        <select id="emissions-type">
+          <option value="total">Total Emissions</option>
+          <option value="capita">Emissions Per Capita</option>
+        </select>
+      </div>
+      <div id="emissions-map" class="chart-container"></div>
+      <div class="insights">
+        <h3>Key Insights:</h3>
+        <ul>
+          <li>China, the US, and India are the largest total emitters</li>
+          <li>On a per-capita basis, oil-producing nations and developed countries have the highest emissions</li>
+          <li>Emissions patterns have shifted significantly over the past 20 years</li>
+        </ul>
+      </div>
+    </section>
+
+    <section id="policy" class="visualization-section">
+      <h2>Climate Policy Language Analysis</h2>
+      <p>Analyze the most common terminology used in climate policy documents. This visualization shows the frequency of key terms in different policy contexts.</p>
+      <div class="controls">
+        <select id="policy-source">
+          <option value="paris">Paris Agreement</option>
+          <option value="ipcc">IPCC Reports</option>
+          <option value="national">National Policies</option>
+        </select>
+      </div>
+      <div id="policy-wordcloud" class="chart-container"></div>
+      <div class="insights">
+        <h3>Key Insights:</h3>
+        <ul>
+          <li>Terms like "mitigation" and "adaptation" are increasingly common</li>
+          <li>Emphasis has shifted from "global warming" to "climate change" over time</li>
+          <li>Economic terms appear more frequently in newer policy documents</li>
+        </ul>
+      </div>
+    </section>
+
+    <section id="about">
+      <h2>About This Project</h2>
+      <p>This visualization dashboard was created as an individual project for my data visualization course. It uses D3.js to create interactive visualizations of climate data.</p>
+      <h3>Data Sources:</h3>
+      <ul>
+        <li>Temperature data: NASA GISS Surface Temperature Analysis</li>
+        <li>Emissions data: Our World in Data, based on the Global Carbon Project</li>
+        <li>Policy text: Analysis of publicly available climate policy documents</li>
+      </ul>
+      <h3>Design Process:</h3>
+      <p>The visualizations were designed with the following considerations in mind:</p>
+      <ul>
+        <li>Accessibility: Color schemes chosen for colorblind accessibility</li>
+        <li>Interactivity: Controls allow users to explore different aspects of the data</li>
+        <li>Clarity: Each visualization focuses on communicating one key message</li>
+      </ul>
+      
+      <h3>Design Evaluation:</h3>
+      <p>After creating the initial dashboard, I gathered feedback from peers and made the following improvements:</p>
+      <ul>
+        <li>Enhanced color contrast for better readability</li>
+        <li>Added tooltips to provide more detailed information</li>
+        <li>Included "Key Insights" sections to highlight important findings</li>
+        <li>Made the visualizations responsive to different screen sizes</li>
+      </ul>
+      
+      <h3>Project Reflection:</h3>
+      <p>Creating this dashboard taught me several key lessons about effective data visualization:</p>
+      <ul>
+        <li>Understanding the audience is crucial for creating accessible visualizations</li>
+        <li>Interactive elements should enhance understanding, not distract from the main message</li>
+        <li>Simplicity is often more effective than complexity in conveying information</li>
+        <li>Data visualizations should tell a coherent story to engage users</li>
+      </ul>
+    </section>
+  </main>
+
+  <footer>
+    <p>Created by Chirayu Sukhum (Tuey) | Visualization HCD-101:00050 | 2025</p>
+  </footer>
+
+  <!-- JavaScript files -->
+  <script src="js/main.js"></script>
+  <script src="js/temperature-chart.js"></script>
+  <script src="js/emissions-map.js"></script>
+  <script src="js/policy-wordcloud.js"></script>
+</body>
+</html>
